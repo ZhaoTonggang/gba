@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN" onselectstart="return false" oncontextmenu=self.event.returnValue=false>
+	<head>
+		<title>GBA游戏盒 - 在线畅玩经典游戏</title>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1, maximum-scale=1">
+		<meta name="description" content="在线免费畅玩或下载红白机游戏，包括魂斗罗，超级玛丽，坦克大战等小霸王经典游戏，让我们一同找回童年的快乐！玩红白机游戏，就认准红白机游戏盒！">
+		<meta name="keywords" content="nes,小霸王,红白机,FC游戏,童年回忆,经典游戏,在线游戏,小游戏">
+		<meta name="author" content="赵彤刚">
+		<meta name="theme-color" content="#00ffff">
+		<!--网站图标配置-->
+		<link rel="apple-touch-icon" sizes="192x192" href="./icons/192x192.png">
+		<link rel="icon" type="image/png" sizes="128x128" href="./icons/128x128.png">
+		<link rel="icon" type="image/png" sizes="144x144" href="./icons/144x144.png">
+		<link rel="icon" type="image/png" sizes="384x384" href="./icons/384x384.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="./icons/512x512.png">
+		<!-- 页面样式 -->
+		<link rel="stylesheet" type="text/css" href="./css/index.css">
+		<!--PWA配置-->
+		<!-- <link rel="manifest" type="text/css" href="./manifest.json"> -->
+	</head>
+	<body class="is-loading">
+		<div class="div1">
+			<a class="title" href="./" title="在线畅玩小霸王经典游戏"><img src="./icons/72x72.png" alt="红白机游戏盒" />GBA游戏盒(demo V-1)</a>
+			<input type="checkbox" checked="true" id="yzxtg" />
+			<label for="yzxtg" class="lad">
+				<img src="./image/button/more.png" alt="更多" title="更多">
+			</label>
+			<ul class="hul">
+				<li>
+					<input id="search" type="text" maxlength="10" oninput="intdata()" placeholder="请输入关键字" />
+				</li>
+				<!-- <li>
+					<a title="玩家社区" target="_blank" href="https://pd.qq.com/s/1eis9h2k7"><img
+							src="./image/button/topic.png" alt="玩家社区" />玩家社区</a>
+				</li>
+				<li>
+					<a title="留言反馈" target="_blank"
+						href="https://openai.weixin.qq.com/webapp/NlFdeGGV6J4GfwxPImLX9mxGXzkSHg?robotName=%E7%BA%A2%E7%99%BD%E6%9C%BA%E6%B8%B8%E6%88%8F%E7%9B%92"><img
+							src="./image/button/lyjl.png" alt="留言反馈" />留言反馈</a>
+				</li> -->
+				<li>
+					<a title="关于我们" target="_blank" href="https://my.heheda.top"><img src="./image/button/about.png"
+							alt="关于我们" />关于我们</a>
+				</li>
+			</ul>
+		</div>
+		<div id="app" class="sapp">
+			<h1 id="apph">资源正在加载中...</h1>
+		</div>
+		<!-- 页面逻辑 -->
+		<script type="text/javascript" src="./js/index.js" charset="UTF-8"></script>
+		<!--PWA渐进式应用配置-->
+		<!-- <script async="async" type="module">
+			import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+			const el = document.createElement('pwa-update');
+			document.body.appendChild(el);
+		</script> -->
+	</body>
+</html>

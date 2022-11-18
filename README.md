@@ -1,2 +1,15 @@
-# gba
-本程序受知识产权保护 非开源程序，禁止商业使用，禁止任何形式的二次开发、改编、反编译等，仅供个人学习交流。 此程序接受到知识产权保护 非开源程序，禁止商业使用，禁止任何形式的二次开发、修改、反编译等，仅提供个人学习交流。 https://nes.heheda.top
+# Welcome to the GBA emulator
+
+GBA Emulator is a free, online GBA emulator with 150+ Games to play!
+
+# Github GBA Game Website
+
+https://browncha023.github.io/GBA/
+
+# EIC Version
+
+https://gba.endinternetcensorship.repl.co/
+
+<br>
+
+# ⚠️This Project Is No Longer Supported!⚠️
