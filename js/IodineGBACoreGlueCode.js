@@ -137,7 +137,7 @@ fetch('./list.json', {
 		//展示游戏名称
 		document.getElementById('name').innerHTML = gameInfo[0].n + gameInfo[0].v;
 		// 修改title
-		document.title = gameInfo[0].n + gameInfo[0].v + ' - ' + '红白机游戏盒';
+		document.title = gameInfo[0].n + gameInfo[0].v + ' - ' + 'GBA游戏盒';
 	})
 	.catch(err => console.error('获取游戏信息失败'))
 //实例化摇杆信息
