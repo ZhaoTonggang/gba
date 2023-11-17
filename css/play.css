@@ -3,13 +3,16 @@
 	padding: 0;
 	margin: 0;
 	touch-action: none;
+	text-decoration: none;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	font-family: YouYuan, KaiTai;
+	font-weight: bold;
+	font-family: PingFang SC, SimSun, KaiTi, YouYuan;
+	text-align: center;
 }
 
 html,
@@ -19,7 +22,6 @@ body {
 }
 
 body {
-	text-align: center;
 	overflow: hidden;
 	background: -moz-linear-gradient(60deg, rgba(253, 158, 240, 0.5), rgba(129, 208, 253, 0.5)), url("../image/bg.jpg");
 	background: -webkit-linear-gradient(60deg, rgba(253, 158, 240, 0.5), rgba(129, 208, 253, 0.5)), url("../image/bg.jpg");
@@ -47,6 +49,7 @@ body {
 	border-radius: 10px;
 	display: block;
 	z-index: 10;
+	transition: 0.5s linear;
 }
 
 .titler {
@@ -65,21 +68,29 @@ body {
 	border: none;
 	border-radius: 10px;
 	cursor: pointer;
+	transition: all 1s;
 }
 
-.titbut a {
-	text-decoration: none;
+.titbut:hover {
+	& img {
+		transform: rotateZ(360deg);
+	}
+
+	& p {
+		color: #008cff;
+	}
 }
 
 .titbut img {
 	height: 30px;
 	width: 30px;
+	transition: all 1s;
 }
 
 .titbut p {
 	color: #000000;
 	font-size: 14px;
-	font-weight: bold;
+	transition: all 1s;
 }
 
 #share {
@@ -96,26 +107,27 @@ body {
 	background-color: aqua;
 	border-radius: 10px;
 	z-index: 999;
+	transition: 0.5s linear;
 }
 
 /* 通用 */
 #show_box {
 	display: inline-block;
 	position: relative;
-	text-align: center;
-	background: url(../image/nesico.png), no-repeat, center;
-	background-size: cover;
+	background: url(../image/nesico.png) no-repeat center/65%;
 	font-size: 0;
-}
-
-#show_box #nes-canvas {
-	touch-action: none;
 }
 
 .btnload {
 	background-color: rgba(225, 225, 225, 0.5);
 	color: #ff4400;
 	cursor: pointer;
+	transition: all 1s;
+}
+
+.btnload:hover {
+	color: black;
+	background-color: aqua;
 }
 
 #btn_load {
@@ -124,10 +136,8 @@ body {
 	top: 50%;
 	transform: translate(-50%, -50%);
 	font-size: 25px;
-	font-weight: bold;
 	padding: 5px;
 	border-radius: 10px;
-	display: inline;
 }
 
 .showload {
@@ -142,7 +152,6 @@ body {
 	z-index: 90;
 	position: fixed;
 	bottom: 25px;
-	touch-action: none;
 }
 
 /* 摇杆容器 */
@@ -176,7 +185,6 @@ body {
 .nes_btn_box .btn {
 	height: 20px;
 	line-height: 20px;
-	text-align: center;
 	background-color: red;
 	color: lightcyan;
 	cursor: pointer;
@@ -191,7 +199,7 @@ body {
 
 .nes_btn_box .btn-select,
 .nes_btn_box .btn-start {
-	width: 40%;
+	width: 45%;
 	margin-bottom: 20px;
 }
 
@@ -208,24 +216,21 @@ body {
 
 .nes_btn_box .btn-a,
 .nes_btn_box .btn-b {
-	width: 46%;
+	width: 45%;
 }
 
 /* 按键映射说明 */
 #player1,
 #player2 {
 	display: none;
-	height: auto;
-	width: 140px;
 	bottom: 20px;
 	padding: 10px;
-	line-height: 30px;
 	position: absolute;
 	z-index: 90;
-	font-weight: bold;
 	font-size: 20px;
 	background-color: aqua;
-	border-radius: 20px;
+	border-radius: 10px;
+	transition: 0.5s linear;
 }
 
 #player1 {
@@ -266,7 +271,6 @@ hr {
 
 .hnli {
 	height: 100px;
-	list-style: none;
 	margin: 5px;
 	background-color: aqua;
 	border-radius: 20px;
@@ -290,13 +294,11 @@ hr {
 .hndiv {
 	height: 100px;
 	width: 350px;
-	text-align: center;
 }
 
 .hndiv p {
 	font-size: 16px;
 	margin: 5px;
-	font-weight: bold;
 }
 
 .hnsbut,
@@ -305,7 +307,6 @@ hr {
 	height: 30px;
 	width: 50px;
 	color: white;
-	font-weight: bold;
 	font-size: 16px;
 	border-radius: 5px;
 	border: none;

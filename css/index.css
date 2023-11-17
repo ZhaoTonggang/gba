@@ -3,7 +3,12 @@
 	padding: 0;
 	margin: 0;
 	user-select: none;
-	font-family: YouYuan, KaiTai;
+	font-family: PingFang SC, SimSun, KaiTi, YouYuan;
+	scroll-behavior: smooth;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+	letter-spacing: 1px;
 }
 
 html,
@@ -28,41 +33,72 @@ body {
 	transition: opacity 2s ease-out;
 }
 
-#app {
-	position: absolute;
-	margin: 15px 0;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	top: 40px;
-}
-
-.div1 {
+.div1,
+.div2 {
 	position: fixed;
 	z-index: 99;
 	width: 100%;
-	height: 50px;
-	text-align: center;
 	background-color: aqua;
-	padding: 0;
+}
+
+.div1 {
+	height: 50px;
+}
+
+.div2 {
+	height: 25px;
+	bottom: 0;
+}
+
+.div2 p {
+	font-size: 15px;
+	padding: 5px;
+	display: inline-block;
+	position: absolute;
+	line-height: 15px;
+}
+
+.div2 a {
+	color: #000000;
+}
+
+.div2 a:hover {
+	color: #008cff;
+}
+
+.div2p {
+	color: red;
+	left: 5px;
+}
+
+.div2p2 {
+	color: black;
+	right: 5px;
 }
 
 .title {
-	display: inline-block;
-	text-decoration: none;
-	font-weight: bold;
 	color: black;
 	font-size: 25px;
 	position: absolute;
 	line-height: 40px;
 	margin: 5px;
 	left: 15px;
+	transition: all 1s;
+}
+
+.title:hover {
+	color: #008cff;
+
+	& img {
+		transform: rotate(-30deg);
+	}
 }
 
 .title img {
 	height: 40px;
 	width: 40px;
 	vertical-align: bottom;
+	transition: all 1s;
 }
 
 .lad,
@@ -76,51 +112,60 @@ body {
 	margin: auto;
 	padding: 0;
 	overflow: hidden;
-	list-style: none;
 	right: 15px;
 }
 
 .hul li {
 	display: inline-block;
-	margin: 5px;
+	padding: 5px;
 }
 
 .hul li a {
-	display: inline-block;
 	color: black;
 	font-size: 16px;
-	font-weight: bold;
 	line-height: 40px;
-	letter-spacing: 1px;
-	text-decoration: none;
-	position: relative;
-	text-align: center;
+	transition: all 1s;
 }
 
 .hul li a img {
 	height: 25px;
 	width: 25px;
-	margin: 5px;
+	margin-right: 5px;
 	vertical-align: middle;
-	text-align: center;
+	transition: all 1s;
 }
 
 .hul li a:hover,
 .hul li a.selected {
-	color: #00a0e9;
-	text-align: center;
+	color: #008cff;
+
+	& img {
+		transform: rotateY(360deg);
+	}
+}
+
+#app {
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	top: 60px;
+	padding-bottom: 30px;
 }
 
 #app .item {
-	width: 200px;
+	width: 170px;
 	height: auto;
-	display: block;
-	box-shadow: 0 10px 20px -10px #00a0e9;
-	border: 2px solid #00a0e9;
+	box-shadow: 0 10px 20px -10px aqua;
+	border: 2px solid aqua;
 	text-align: center;
 	background-color: #000000;
 	margin: 10px 5px;
 	border-radius: 10px;
+	transition: all 0.5s linear;
+	-webkit-transition: all 0.5s linear;
+	cursor: pointer
 }
 
 #app .item:hover {
@@ -129,14 +174,11 @@ body {
 	transform: translate3d(0px, -10px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
 	transform-style: preserve-3d;
 	-webkit-transform-style: inherit;
-	-webkit-transition: 0.3s linear;
-	transition: 0.3s linear;
-	cursor: pointer
 }
 
 #app .item .img_box {
 	display: block;
-	height: 200px;
+	height: 170px;
 	width: 100%;
 	overflow: hidden;
 	position: relative;
@@ -153,7 +195,6 @@ body {
 #app .item .p1 {
 	font-size: 15px;
 	color: white;
-	font-weight: bold;
 	margin: 10px 5px;
 }
 
@@ -161,7 +202,6 @@ body {
 #app .item .p3 {
 	font-size: 14px;
 	padding: 5px 15px;
-	font-weight: bold;
 	border-radius: 0 20px;
 	position: absolute;
 }
@@ -180,17 +220,25 @@ body {
 	background-color: blueviolet;
 }
 
-#search {
-	width: 100px;
-	height: 15px;
-	line-height: 15px;
-	border-radius: 20px;
-	padding: 5px;
-	text-align: center;
-	color: black;
-	font-weight: bold;
-	border: 2px solid mediumaquamarine;
+#search,
+#searchBt {
 	font-size: 14px;
+	border-radius: 10px;
+	padding: 5px;
+	margin: 5px 1px;
+	line-height: 15px;
+}
+
+#search {
+	width: 130px;
+	color: black;
+	float: left;
+}
+
+#searchBt {
+	background-color: #008cff;
+	color: #ffffff;
+	cursor: pointer;
 }
 
 .sapp {
@@ -198,25 +246,78 @@ body {
 	top: 50% !important;
 }
 
+/*返回顶部按钮*/
+#cd-top {
+	z-index: 99999;
+	display: block;
+	border-radius: 50px;
+	height: 50px;
+	width: 50px;
+	position: fixed;
+	right: 10px;
+	cursor: pointer;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	transition: all 1s;
+}
+
+#cd-top:hover {
+	background: #008cff url(../image/button/cd-top.png) no-repeat center/70%;
+	transform: rotateZ(360deg);
+}
+
+.cdtopHid {
+	background: #008cff url(../image/button/cd-top.png) no-repeat center/70%;
+	transform: rotateY(360deg);
+	top: -50px;
+}
+
+.cdtopVis {
+	background: aqua url(../image/button/cdtop.png) no-repeat center/60%;
+	top: 85%;
+}
+
 @media (max-width: 1250px) {
 	#app .item {
-		height: auto;
-		width: 180px;
+		width: 160px;
 	}
 
 	#app .item .img_box {
-		height: 180px;
+		height: 160px;
 	}
 }
 
 @media (max-width: 1024px) {
+	.div2 {
+		height: 45px;
+	}
+
+	.div2 p {
+		display: block;
+		position: relative;
+	}
+
+	.div2p {
+		left: 0;
+	}
+
+	.div2p2 {
+		right: 0;
+		padding-top: 0 !important;
+	}
+
+	#app {
+		padding-bottom: 50px;
+	}
+
 	#app .item {
-		height: auto;
-		width: 170px;
+		width: 150px;
 	}
 
 	#app .item .img_box {
-		height: 170px;
+		height: 150px;
 	}
 
 	.lad {
@@ -246,22 +347,18 @@ body {
 
 	.hul li {
 		display: block;
-		border-radius: 20px;
+		border-radius: 10px;
 		background-color: cadetblue;
+		margin: 3px;
 	}
 
 	.hul li a {
-		display: block;
-		width: 100%;
-		padding: 5px;
 		color: black;
 		font-size: 18px;
 	}
 
 	.hul li #search {
-		display: block;
-		padding: 10px;
-		margin: auto;
+		float: none;
 	}
 
 	:checked~.hul {
@@ -271,19 +368,17 @@ body {
 }
 
 @media (max-width: 600px) {
-	#app .item {
-		height: auto;
-		width: 160px;
+	.div2 {
+		display: none;
 	}
 
-	#app .item .img_box {
-		height: 160px;
+	#app {
+		padding-bottom: 10px;
 	}
 }
 
 @media (max-width:370px) {
 	#app .item {
-		height: auto;
 		width: 130px;
 	}
 
@@ -303,7 +398,6 @@ body {
 /*定义滚动条轨道 内阴影+圆角*/
 ::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-	border-radius: 10px;
 	background-color: #202124;
 }
 
@@ -311,7 +405,7 @@ body {
 ::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-	background-color: #00a0e9;
+	background-color: #008cff;
 }
 
 /*滑块效果*/
