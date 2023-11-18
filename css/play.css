@@ -114,7 +114,7 @@ body {
 #show_box {
 	display: inline-block;
 	position: relative;
-	background: url(../image/nesico.png) no-repeat center/65%;
+	background: url(../image/nesico.svg) no-repeat center/65%;
 	font-size: 0;
 }
 
