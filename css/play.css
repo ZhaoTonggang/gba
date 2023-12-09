@@ -19,10 +19,20 @@ html,
 body {
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
 }
 
 body {
-	overflow: hidden;
+	opacity: 1;
+	transform: rotateX(0deg);
+	-moz-transition: opacity 2s ease-out, transform 2s ease;
+	-webkit-transition: opacity 2s ease-out, transform 2s ease;
+	-ms-transition: opacity 2s ease-out, transform 2s ease;
+	transition: opacity 2s ease-out, transform 2s ease;
+}
+
+body,
+.ejs_canvas {
 	background: -moz-linear-gradient(60deg, rgba(253, 158, 240, 0.5), rgba(129, 208, 253, 0.5)), url("../image/bg.jpg");
 	background: -webkit-linear-gradient(60deg, rgba(253, 158, 240, 0.5), rgba(129, 208, 253, 0.5)), url("../image/bg.jpg");
 	background: -ms-linear-gradient(60deg, rgba(253, 158, 240, 0.5), rgba(129, 208, 253, 0.5)), url("../image/bg.jpg");
@@ -31,12 +41,6 @@ body {
 	background-size: cover, cover;
 	background-position: center center, center center;
 	background-attachment: fixed, fixed;
-	opacity: 1;
-	transform: rotateX(0deg);
-	-moz-transition: opacity 2s ease-out, transform 2s ease;
-	-webkit-transition: opacity 2s ease-out, transform 2s ease;
-	-ms-transition: opacity 2s ease-out, transform 2s ease;
-	transition: opacity 2s ease-out, transform 2s ease;
 }
 
 /* 标题容器 */
@@ -98,8 +102,7 @@ body {
 }
 
 #name {
-	position: absolute;
-	display: inline-block;
+	position: fixed;
 	top: 20px;
 	left: 50%;
 	transform: translate(-50%);
@@ -112,10 +115,9 @@ body {
 
 /* 通用 */
 #show_box {
-	display: inline-block;
-	position: relative;
-	background: url(../image/nesico.svg) no-repeat center/65%;
-	font-size: 0;
+	height: 100%;
+	width: 100%;
+	background: url(../image/nesico.svg) no-repeat center/50%;
 }
 
 .btnload {
@@ -131,7 +133,8 @@ body {
 }
 
 #btn_load {
-	position: absolute;
+	z-index: 999;
+	position: fixed;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
@@ -145,87 +148,13 @@ body {
 	color: #000000;
 }
 
-/* 摇杆按钮容器 */
-#direction,
-#user_btn_box {
-	display: none;
-	z-index: 90;
-	position: fixed;
-	bottom: 25px;
-}
-
-/* 摇杆容器 */
-#direction {
-	left: 25px;
-	width: 150px;
-	height: 150px;
-	background: url(../image/yg.png) no-repeat center/cover;
-	cursor: move;
-}
-
-/* 按钮容器 */
-#user_btn_box {
-	right: 25px;
-	width: 150px;
-	height: 170px;
-}
-
-/*按钮样式*/
-.nes_btn_box {
-	margin: 0 auto;
-	width: 150px;
-	height: 170px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-content: space-around;
-	-webkit-tap-highlight-color: transparent;
-}
-
-.nes_btn_box .btn {
-	height: 20px;
-	line-height: 20px;
-	background-color: red;
-	color: lightcyan;
-	cursor: pointer;
-	border-radius: 20px;
-	opacity: 0.5;
-}
-
-/* 点击时按钮的背景色 */
-.nes_btn_box .btn.isTouch {
-	background-color: linen;
-}
-
-.nes_btn_box .btn-select,
-.nes_btn_box .btn-start {
-	width: 45%;
-	margin-bottom: 20px;
-}
-
-.nes_btn_box .btn-ab,
-.nes_btn_box .btn-a,
-.nes_btn_box .btn-b {
-	height: 50px;
-	line-height: 50px;
-}
-
-.nes_btn_box .btn-ab {
-	width: 80%;
-}
-
-.nes_btn_box .btn-a,
-.nes_btn_box .btn-b {
-	width: 45%;
-}
-
 /* 按键映射说明 */
 #player1,
 #player2 {
 	display: none;
-	bottom: 20px;
+	bottom: 50px;
 	padding: 10px;
-	position: absolute;
+	position: fixed;
 	z-index: 90;
 	font-size: 20px;
 	background-color: aqua;
@@ -329,23 +258,20 @@ hr {
 
 /* 竖屏 */
 @media screen and (orientation: portrait) {
-	#show_box {
-		width: 100%;
-		height: auto;
-	}
-
-	#show_box #nes-canvas {
-		width: 100%;
-		height: auto;
-	}
 
 	.titlel,
 	.titler {
 		display: contents;
 	}
 
+	#show_box {
+		height: 85%;
+		position: relative;
+		display: block;
+	}
+
 	.titbut {
-		margin: 10px auto;
+		margin: 20px auto;
 	}
 
 	#name {
@@ -353,27 +279,12 @@ hr {
 	}
 }
 
-/* 横屏 */
-@media screen and (orientation: landscape) {
-	#show_box {
-		width: auto;
-		height: 100%;
-	}
-
-	#show_box #nes-canvas {
-		width: auto;
-		height: 100%;
-	}
-}
-
 /* 页面加载遮罩 */
 .is-loading {
-	display: block;
-	position: fixed;
 	opacity: 0;
 	transform: rotateX(360deg);
-	background: -moz-linear-gradient(60deg, rgba(253, 158, 240, 0.7), rgba(129, 208, 253, 0.7)) no-repeat center/cover, url(../image/loader.gif) no-repeat center/20%;
-	background: -webkit-linear-gradient(60deg, rgba(253, 158, 240, 0.7), rgba(129, 208, 253, 0.7)) no-repeat center/cover, url(../image/loader.gif) no-repeat center/20%;
-	background: -ms-linear-gradient(60deg, rgba(253, 158, 240, 0.7), rgba(129, 208, 253, 0.7)) no-repeat center/cover, url(../image/loader.gif) no-repeat center/20%;
-	background: linear-gradient(60deg, rgba(253, 158, 240, 0.7), rgba(129, 208, 253, 0.7)) no-repeat center/cover, url(../image/loader.gif) no-repeat center/20%;
+	background: -moz-linear-gradient(60deg, rgba(253, 158, 240, 0.7), rgba(129, 208, 253, 0.7)) no-repeat center/cover, url(../image/loader.svg) no-repeat center/20%;
+	background: -webkit-linear-gradient(60deg, rgba(253, 158, 240, 0.7), rgba(129, 208, 253, 0.7)) no-repeat center/cover, url(../image/loader.svg) no-repeat center/20%;
+	background: -ms-linear-gradient(60deg, rgba(253, 158, 240, 0.7), rgba(129, 208, 253, 0.7)) no-repeat center/cover, url(../image/loader.svg) no-repeat center/20%;
+	background: linear-gradient(60deg, rgba(253, 158, 240, 0.7), rgba(129, 208, 253, 0.7)) no-repeat center/cover, url(../image/loader.svg) no-repeat center/20%;
 }
