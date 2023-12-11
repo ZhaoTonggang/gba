@@ -30,6 +30,10 @@ if (window.top != window) {
 		};
 		// 游戏ID
 		window.gameId = gameInfo.i;
+		// 封面
+		window.backgroundImg = '../imgs/' + gameInfo.i + '.png';
+		// ROM
+		window.gameUrl = "../roms/" + gameInfo.i + ".7z";
 		// 移除遮罩
 		document.body.classList.remove('is-loading');
 	}
@@ -41,7 +45,6 @@ let setgame = false;
 // 初始化
 window.EJS_player = "#show_box";
 window.dataPath = "https://other.heheda.top/gamelib/";
-// window.dataPath = "../lib/data/";
 // 核心
 window.system = "gba";
 // 线程
@@ -54,8 +57,10 @@ window.adMode = 1;
 window.adTimer = 5000;
 // 音量
 window.volume = 1;
+// 按钮
+window.alignStartButton = "center";
 // 自动开始
-window.startOnLoad = true;
+// window.startOnLoad = true;
 // 菜单配置
 window.defaultOptions = {
 	'shader': 'crt-easymode.glslp',
@@ -64,8 +69,6 @@ window.defaultOptions = {
 	'fceumm_sndquality': 'Very High',
 	'fceumm_turbo_enable': 'Both'
 };
-// 封面
-window.backgroundImg = '../imgs/' + gameInfo.i + '.png';
 // 背景模糊
 window.backgroundBlur = true;
 // 背景颜色
@@ -424,69 +427,6 @@ const showtext = () => {
 	showload.classList.add("showload");
 	showload.innerHTML = '初始化失败';
 };
-const StartGame = () => {
-	// 初始化模拟器
-	window.EJS_emulator = new EmulatorJS(EJS_player, window);
-	if (typeof window.EJS_ready === "function") {
-		window.EJS_emulator.on("ready", window.EJS_ready);
-	}
-	if (typeof window.EJS_onGameStart === "function") {
-		window.EJS_emulator.on("start", window.EJS_onGameStart);
-	}
-	if (typeof window.EJS_onLoadState === "function") {
-		window.EJS_emulator.on("load", window.EJS_onLoadState);
-	}
-	if (typeof window.EJS_onSaveState === "function") {
-		window.EJS_emulator.on("save", window.EJS_onSaveState);
-	}
-	cocoMessage.warning("正在载入游戏！", 2000);
-	showload.style.display = 'none';
-}
-// 载入游戏
-const req = new XMLHttpRequest();
-req.open("GET", "../roms/" + gameInfo.i + ".zip");
-req.overrideMimeType("application/zip;charset=x-user-defined");
-req.onerror = (e) => console.error('这个错误发生在游戏加载环节', e);
-req.onprogress = (e) => {
-	// 显示加载进度
-	showload.innerHTML = '加载中(' + (e.loaded / e.total * 100).toFixed(0) + '%)';
-};
-req.onloadstart = () => {
-	cocoMessage.warning("ROM载入中！", 2000);
-};
-req.onload = () => {
-	if (req.status === 200) {
-		let nes = null;
-		const nzip = new JSZip();
-		cocoMessage.success("ROM载入成功！", 2000);
-		nzip.loadAsync(req.responseText)
-			.then(zip => {
-				if (!zip) {
-					showtext();
-				} else {
-					cocoMessage.warning("释放资源中！", 2000);
-					zip.file(gameInfo.i + ".gba").async("blob")
-						.then(res => {
-							window.gameUrl = res;
-							cocoMessage.success("资源配置完成！", 2000);
-							showload.classList.add("btnload");
-							showload.classList.remove("showload");
-							showload.innerHTML = '点击开始游戏';
-							showload.onclick = () => StartGame();
-						})
-				}
-			})
-	} else if (req.status === 0) {
-		req.onerror();
-		showload.innerHTML = '请求数据失败';
-		cocoMessage.error("请求数据失败！", 2000);
-	} else {
-		req.onerror();
-		showload.innerHTML = 'ROM加载失败';
-		cocoMessage.error("ROM加载失败！", 2000);
-	};
-};
-req.send();
 //展示游戏名称
 let gnm = gameInfo.v;
 if (gnm != 'false') {
@@ -539,7 +479,7 @@ const dowrom = () => {
 	const dorom = confirm('您要下载此游戏的ROM文件吗？');
 	if (dorom == true) {
 		cocoMessage.warning("即将开始下载！", 2000);
-		window.open('../roms/' + gameInfo.i + '.zip');
+		window.open('../roms/' + gameInfo.i + '.7z');
 	} else {
 		cocoMessage.warning("您取消了下载！", 2000);
 	}
@@ -556,6 +496,25 @@ const screenshot = () => {
 	} else {
 		cocoMessage.warning("请先开始游戏！", 2000);
 	}
+}
+// 载入游戏
+window.onload = () => {
+	// 初始化模拟器
+	window.EJS_emulator = new EmulatorJS(EJS_player, window);
+	if (typeof window.EJS_ready === "function") {
+		window.EJS_emulator.on("ready", window.EJS_ready);
+	}
+	if (typeof window.EJS_onGameStart === "function") {
+		window.EJS_emulator.on("start", window.EJS_onGameStart);
+	}
+	if (typeof window.EJS_onLoadState === "function") {
+		window.EJS_emulator.on("load", window.EJS_onLoadState);
+	}
+	if (typeof window.EJS_onSaveState === "function") {
+		window.EJS_emulator.on("save", window.EJS_onSaveState);
+	}
+	showload.style.display = 'none';
+	cocoMessage.success("资源配置完成！", 2000);
 }
 //禁止双击缩放
 document.addEventListener('dblclick', (e) => {
