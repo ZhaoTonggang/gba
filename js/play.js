@@ -54,7 +54,7 @@ if (window.top != window) {
 		// 核心
 		window.system = "gba";
 		// 线程
-		window.threads = true;
+		// window.threads = true;
 		// 广告
 		window.adUrl = "../image/ad.png";
 		// 广告方式
