@@ -61,7 +61,10 @@ const intdata = () => {
 intdata();
 //打开游戏
 const opgame = (v, n, i) => {
-	window.open(encodeURI('./play/?v=' + v + '&n=' + n + '&i=' + i), '_self');
+	const GurlA = document.createElement('a');
+	GurlA.setAttribute('href', encodeURI('./play/?v=' + v + '&n=' + n + '&i=' + i));
+	GurlA.setAttribute('target', '_self');
+	GurlA.click();
 };
 //标题判断
 window.addEventListener('visibilitychange', () => {
