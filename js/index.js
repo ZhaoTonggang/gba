@@ -40,15 +40,13 @@ const intdata = () => {
 				};
 			};
 			for (let j = 0; j < data.length; j++) {
-				let span1 = data[j].v != '' ? '<span class="p2">' + data[j].v + '</span>' : '';
-				let span2 = data[j].c != '' ? '<span class="p3">' + data[j].c + '</span>' : '';
-				let opgamev = data[j].v != '' ? "'" + data[j].v + "'" : false;
-				item +=
-					'<div class="item" onclick="opgame(' + opgamev + ',\'' + data[j].n + '\',\'' + data[j].i +
-					'\')">' +
-					'<div class="img_box"><img src="./imgs/' + data[j].i + '.png" title="' + data[j].n +
-					'" alt="' +
-					data[j].n + '">' + span1 + span2 + '</div><p class="p1">' + data[j].n + '</p></div>';
+				let span1 = data[j].v != '' ? '<span class="item_p2">' + data[j].v + '</span>' : '';
+				let span2 = data[j].c != '' ? '<span class="item_p3">' + data[j].c + '</span>' : '';
+				let opgamev = data[j].v != '' ? data[j].v : false;
+				let purl = encodeURI('./play/?v=' + opgamev + '&n=' + data[j].n + '&i=' + data[j].i);
+				item += '<a href="' + purl + '" title="' + data[j].n + '" target="_self"><div class="item">' +
+					'<div class="img_box"><img src="./imgs/' + data[j].i + '.png" alt="' + data[j].n + '">' +
+					span1 + span2 + '</div><p class="item_p1">' + data[j].n + '</p></div></a>';
 			};
 			app.classList.remove('sapp');
 			app.innerHTML = item;
