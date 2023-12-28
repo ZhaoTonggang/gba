@@ -56,7 +56,7 @@ if (window.top != window) {
 		// 线程
 		// window.threads = true;
 		// 广告
-		window.adUrl = "https://other.heheda.top/ad/";
+		window.adUrl = "../ads/";
 		// 广告方式
 		window.adMode = 2;
 		// 广告时间
