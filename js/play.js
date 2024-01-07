@@ -11,7 +11,7 @@ const urlerr = () => {
 	alert('参数传入不合法');
 	window.location.href = "/";
 	return;
-};
+}
 // 判断数据合法性
 if (window.top != window) {
 	alert('当您看到这条提示意味着：您所访问的网站正在恶意调用本站资源，本站对偷盗资源的行为0容忍，点击确认跳转正版体验。');
@@ -28,7 +28,7 @@ if (window.top != window) {
 				urlerr();
 			}
 			gameInfo[data[0]] = data[1];
-		};
+		}
 		cocoMessage.warning("正在配置资源！", 2000);
 		const showload = document.getElementById('btn_load');
 		//展示游戏名称
@@ -62,7 +62,7 @@ if (window.top != window) {
 		window.defaultOptions = {
 			'shader': 'crt-easymode.glslp',
 			'save-state-location': 'browser'
-		};
+		}
 		// 背景模糊
 		window.backgroundBlur = true;
 		// 背景颜色
@@ -377,7 +377,157 @@ if (window.top != window) {
 			"DPAD_DOWN": "十字键向下",
 			"DPAD_LEFT": "十字键向左",
 			"DPAD_RIGHT": "十字键向右"
-		};
+		}
+		// 按键映射
+		window.defaultControllers = {
+			0: {
+				0: {
+					'value': 'b',
+					'value2': 'BUTTON_2'
+				},
+				2: {
+					'value': 'space',
+					'value2': 'SELECT'
+				},
+				3: {
+					'value': 'enter',
+					'value2': 'START'
+				},
+				4: {
+					'value': 'w',
+					'value2': 'DPAD_UP'
+				},
+				5: {
+					'value': 's',
+					'value2': 'DPAD_DOWN'
+				},
+				6: {
+					'value': 'a',
+					'value2': 'DPAD_LEFT'
+				},
+				7: {
+					'value': 'd',
+					'value2': 'DPAD_RIGHT'
+				},
+				8: {
+					'value': 'v',
+					'value2': 'BUTTON_1'
+				},
+				10: {
+					'value': 'z',
+					'value2': 'LEFT_TOP_SHOULDER'
+				},
+				11: {
+					'value': 'x',
+					'value2': 'RIGHT_TOP_SHOULDER'
+				},
+				24: {
+					'value': '1'
+				},
+				25: {
+					'value': '2'
+				},
+				26: {
+					'value': '3'
+				}
+			},
+			1: {
+				0: {
+					'value2': 'BUTTON_2'
+				},
+				2: {
+					'value2': 'SELECT'
+				},
+				3: {
+					'value2': 'START'
+				},
+				4: {
+					'value2': 'DPAD_UP'
+				},
+				5: {
+					'value2': 'DPAD_DOWN'
+				},
+				6: {
+					'value2': 'DPAD_LEFT'
+				},
+				7: {
+					'value2': 'DPAD_RIGHT'
+				},
+				8: {
+					'value2': 'BUTTON_1'
+				},
+				10: {
+					'value2': 'LEFT_TOP_SHOULDER'
+				},
+				11: {
+					'value2': 'RIGHT_TOP_SHOULDER'
+				}
+			},
+			2: {
+				0: {
+					'value2': 'BUTTON_2'
+				},
+				2: {
+					'value2': 'SELECT'
+				},
+				3: {
+					'value2': 'START'
+				},
+				4: {
+					'value2': 'DPAD_UP'
+				},
+				5: {
+					'value2': 'DPAD_DOWN'
+				},
+				6: {
+					'value2': 'DPAD_LEFT'
+				},
+				7: {
+					'value2': 'DPAD_RIGHT'
+				},
+				8: {
+					'value2': 'BUTTON_1'
+				},
+				10: {
+					'value2': 'LEFT_TOP_SHOULDER'
+				},
+				11: {
+					'value2': 'RIGHT_TOP_SHOULDER'
+				}
+			},
+			3: {
+				0: {
+					'value2': 'BUTTON_2'
+				},
+				2: {
+					'value2': 'SELECT'
+				},
+				3: {
+					'value2': 'START'
+				},
+				4: {
+					'value2': 'DPAD_UP'
+				},
+				5: {
+					'value2': 'DPAD_DOWN'
+				},
+				6: {
+					'value2': 'DPAD_LEFT'
+				},
+				7: {
+					'value2': 'DPAD_RIGHT'
+				},
+				8: {
+					'value2': 'BUTTON_1'
+				},
+				10: {
+					'value2': 'LEFT_TOP_SHOULDER'
+				},
+				11: {
+					'value2': 'RIGHT_TOP_SHOULDER'
+				}
+			}
+		}
 		// 初始化模拟器
 		window.EJS_emulator = new EmulatorJS(EJS_player, window);
 		// 游戏状态
@@ -404,7 +554,7 @@ if (window.top != window) {
 				} else {
 					if (timer) {
 						clearTimeout(timer);
-					};
+					}
 					timer = setTimeout(() => {
 						isshow = true;
 						hhtml.style.cursor = "none";
@@ -414,10 +564,10 @@ if (window.top != window) {
 						titler.style.left = "-220px";
 						titlel.style.right = "-220px";
 					}, 3000)
-				};
-			};
+				}
+			}
 			setgame = true;
-		});
+		})
 		cocoMessage.success("资源配置完成！", 2000);
 		showload.style.display = 'none';
 		// 移除遮罩
@@ -425,13 +575,13 @@ if (window.top != window) {
 	}
 } else {
 	urlerr();
-};
+}
 // 设置按钮状态
 if (navigator.share) {
 	document.getElementById("share").style.display = "inline";
 } else {
 	console.log("分享功能禁用");
-};
+}
 //获取设备类型
 let isMobile = /(iPhone|iPod|Android|ios|iOS|iPad|WebOS|Symbian|Windows Phone|Phone)/i.test(navigator.userAgent);
 //设置操作方式
@@ -455,7 +605,7 @@ const share = () => {
 		title: '在线玩《' + gameInfo.n + '》',
 		url: url,
 		text: '推荐使用电脑，运行更加流畅！在线免费畅玩或下载GBA经典游戏，让我们一同找回童年的快乐！玩红白机游戏，就认准GBA游戏盒！'
-	});
+	})
 }
 // 下载rom按钮
 const dowrom = () => {
@@ -466,7 +616,7 @@ const dowrom = () => {
 	} else {
 		cocoMessage.warning("您取消了下载！", 2000);
 	}
-};
+}
 // 截屏
 const screenshot = () => {
 	if (setgame) {
@@ -489,4 +639,4 @@ document.addEventListener('dblclick', (e) => {
 	e.preventDefault()
 }, {
 	passive: false
-});
+})
