@@ -31,8 +31,7 @@ const intdata = () => {
 			if (searchV === '') {
 				data = datas;
 			} else {
-				data = datas.filter(array => array.n.match(searchV) || array.v.match(searchV) || array.c.match(
-					searchV));
+				data = datas.filter(array => array.n.match(searchV));
 				if (data.length === 0) {
 					app.classList.add('sapp');
 					app.innerHTML = '<h1>什么东东都没有，换个词试试丫！</h1>';
@@ -40,9 +39,9 @@ const intdata = () => {
 				};
 			};
 			for (let j = 0; j < data.length; j++) {
-				let span1 = data[j].v != '' ? '<span class="item_p2">' + data[j].v + '</span>' : '';
-				let span2 = data[j].c != '' ? '<span class="item_p3">' + data[j].c + '</span>' : '';
-				let opgamev = data[j].v != '' ? data[j].v : false;
+				let span1 = data[j].v ? '<span class="item_p2">' + data[j].v + '</span>' : '';
+				let span2 = data[j].c ? '<span class="item_p3">' + data[j].c + '</span>' : '';
+				let opgamev = data[j].v ? '&v=' + data[j].v : '';
 				let purl = encodeURI('./play/?v=' + opgamev + '&n=' + data[j].n + '&i=' + data[j].i);
 				item += '<a href="' + purl + '" title="' + data[j].n + '" target="_self"><div class="item">' +
 					'<div class="img_box"><img src="./imgs/' + data[j].i + '.png" alt="' + data[j].n + '">' +

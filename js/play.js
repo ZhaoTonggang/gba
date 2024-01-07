@@ -32,12 +32,7 @@ if (window.top != window) {
 		cocoMessage.warning("正在配置资源！", 2000);
 		const showload = document.getElementById('btn_load');
 		//展示游戏名称
-		let gnm = gameInfo.v;
-		if (gnm != 'false') {
-			gnm = '(' + gnm + ')';
-		} else {
-			gnm = '';
-		}
+		const gnm = gameInfo.v ? '(' + gameInfo.v + ')' : '';
 		document.getElementById('name').innerHTML = gameInfo.n + gnm;
 		// 修改title
 		document.title = gameInfo.n + gnm + ' - ' + 'GBA游戏盒';
@@ -66,10 +61,7 @@ if (window.top != window) {
 		// 菜单配置
 		window.defaultOptions = {
 			'shader': 'crt-easymode.glslp',
-			'fastForward': 'disabled',
-			'save-state-location': 'browser',
-			'fceumm_sndquality': 'Very High',
-			'fceumm_turbo_enable': 'Both'
+			'save-state-location': 'browser'
 		};
 		// 背景模糊
 		window.backgroundBlur = true;
@@ -123,6 +115,7 @@ if (window.top != window) {
 			"Decompress Game Core": "解压游戏核心",
 			"Download Game Data": "下载游戏数据",
 			"Decompress Game Data": "解压游戏数据",
+			"Context Menu": "菜单",
 			"Shaders": "着色器",
 			"Disabled": "禁用",
 			"2xScaleHQ": "2xScaleHQ",
@@ -193,6 +186,8 @@ if (window.top != window) {
 			"EmulatorJS": "EmulatorJS",
 			"Clear All": "全部清除",
 			"Take Screenshot": "截图",
+			"Start screen recording": "开始录屏",
+			"Stop screen recording": "停止录屏",
 			"Quick Save": "快速保存",
 			"Quick Load": "快速加载",
 			"REWIND": "快退",
