@@ -48,12 +48,10 @@ if (window.top != window) {
 		window.dataPath = "https://other.heheda.top/gamelib/";
 		// 核心
 		window.system = "gba";
-		// 线程
-		// window.threads = true;
 		// 广告
 		window.adUrl = "../ads/";
-		// 广告方式
-		window.adMode = 2;
+		// 全屏
+		window.fullscreenOnLoad = true;
 		// 广告时间
 		window.adTimer = 5000;
 		// 音量
@@ -635,8 +633,13 @@ const chongzai = () => {
 	window.location.reload();
 }
 //禁止双击缩放
-document.addEventListener('dblclick', (e) => {
+window.addEventListener('dblclick', (e) => {
 	e.preventDefault()
 }, {
 	passive: false
 })
+// 卸载提示
+window.onbeforeunload = (bfe) => {
+	bfe.preventDefault();
+	bfe.returnValue = "退出前，别忘记保存游戏进度哦！";
+}
