@@ -32,11 +32,10 @@ if (window.top != window) {
 		cocoMessage.warning("正在配置资源！", 2000);
 		const showload = document.getElementById('btn_load');
 		//展示游戏名称
-		const gnm = gameInfo.v ? '(' + gameInfo.v + ')' : '';
-		document.getElementById('name').innerHTML = gameInfo.n + gnm;
+		document.getElementById('name').innerHTML = gameInfo.n;
 		// 修改title
-		document.title = gameInfo.n + gnm + ' - ' + 'GBA游戏盒';
-		window.gameName = gameInfo.n + gnm;
+		document.title = gameInfo.n + ' - ' + 'GBA游戏盒';
+		window.gameName = gameInfo.n;
 		// 游戏ID
 		window.gameId = gameInfo.i;
 		// 封面
