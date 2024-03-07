@@ -58,7 +58,10 @@ if (window.top != window) {
 		// 菜单配置
 		window.defaultOptions = {
 			'shader': 'crt-easymode.glslp',
-			'save-state-location': 'browser'
+			'save-state-location': 'browser',
+			'mgba_color_correction': 'Auto',
+			'mgba_force_gbp': 'ON',
+			'mgba_idle_optimization': "Don't Remove"
 		}
 		// 背景模糊
 		window.backgroundBlur = true;
