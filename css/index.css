@@ -151,7 +151,7 @@ body {
 	position: relative;
 	border-radius: 10px;
 	text-align: center;
-	background: #000000 url(../image/loader.svg) no-repeat center/70%;
+	background: #000000 url(../image/loader.svg) no-repeat center/50%;
 }
 
 .img_box img {
