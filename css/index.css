@@ -125,7 +125,7 @@ body {
 }
 
 .item {
-	width: 240px;
+	width: 225px;
 	box-shadow: 0 10px 20px -10px aqua;
 	border: 2px solid aqua;
 	text-align: center;
@@ -145,7 +145,7 @@ body {
 }
 
 .img_box {
-	height: 160px;
+	height: 150px;
 	display: block;
 	overflow: hidden;
 	position: relative;
