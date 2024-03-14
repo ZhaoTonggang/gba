@@ -61,7 +61,8 @@ if (window.top != window) {
 			'save-state-location': 'browser',
 			'mgba_color_correction': 'Auto',
 			'mgba_force_gbp': 'ON',
-			'mgba_idle_optimization': "Don't Remove"
+			'mgba_idle_optimization': "Don't Remove",
+			"mgba_solar_sensor_level": "10"
 		}
 		// 背景模糊
 		window.backgroundBlur = true;
