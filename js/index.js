@@ -34,8 +34,7 @@ const intdata = () => {
 			} else {
 				data = datas.filter(array => array.n.match(searchV));
 				if (data.length === 0) {
-					app.classList.add('sapp');
-					app.innerHTML = '<h1>什么东东都没有，换个词试试丫！</h1>';
+					app.innerHTML = '<h1>什么东东都没有，换个词试试丫!</h1>';
 					return;
 				};
 			};
@@ -48,7 +47,6 @@ const intdata = () => {
 					'<div class="img_box"><img src="./imgs/' + data[j].i + '.png" alt="' + data[j].n + '">' +
 					span1 + span2 + '</div><p class="item_p1">' + data[j].n + '</p></div></a>';
 			};
-			app.classList.remove('sapp');
 			app.innerHTML = item;
 		})
 		.catch(err => {
@@ -57,13 +55,6 @@ const intdata = () => {
 		})
 };
 intdata();
-//打开游戏
-const opgame = (v, n, i) => {
-	const GurlA = document.createElement('a');
-	GurlA.setAttribute('href', encodeURI('./play/?v=' + v + '&n=' + n + '&i=' + i));
-	GurlA.setAttribute('target', '_self');
-	GurlA.click();
-};
 //标题判断
 window.addEventListener('visibilitychange', () => {
 	if (document.hidden) {

@@ -116,12 +116,14 @@ body {
 	justify-content: space-evenly;
 	align-items: flex-start;
 	top: 60px;
-	padding-bottom: 30px;
+	padding-bottom: 10px;
 }
 
 #app h1 {
-	position: fixed;
-	top: 50%;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #00ffff;
 }
 
 .item {
@@ -209,11 +211,6 @@ body {
 	cursor: pointer;
 }
 
-.sapp {
-	width: 100%;
-	top: 50% !important;
-}
-
 /*返回顶部按钮*/
 #cd-top {
 	z-index: 99999;
@@ -245,6 +242,20 @@ body {
 .cdtopVis {
 	background: aqua url(../image/button/cdtop.png) no-repeat center/60%;
 	top: 85%;
+}
+
+ins.ads1,
+ins.gogad {
+	padding-top: 60px !important;
+}
+
+ins.ads1,
+ins.ads2 {
+	margin-bottom: -50px !important;
+}
+
+ins.adsbygoogle[data-ad-status="unfilled"] {
+	display: none !important;
 }
 
 @media (max-width:1400px) {

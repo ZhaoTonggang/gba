@@ -611,7 +611,7 @@ const share = () => {
 	navigator.share({
 		title: '在线玩《' + gameInfo.n + '》',
 		url: urldata,
-		text: '推荐使用电脑，运行更加流畅！在线免费畅玩或下载GBA经典游戏，让我们一同找回童年的快乐！玩红白机游戏，就认准GBA游戏盒！'
+		text: '推荐使用电脑，运行更加流畅！在线免费畅玩或下载GBA经典游戏，让我们一同找回童年的快乐！玩GBA游戏，就认准GBA游戏盒！'
 	})
 }
 // 下载rom按钮
