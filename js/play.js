@@ -2,6 +2,7 @@
 "use strict";
 //获取游戏信息
 let gameInfo = {};
+let romUrl;
 const urldata = window.location.href;
 //游戏状态
 let setgame = false;
@@ -40,7 +41,9 @@ if (window.top != window) {
 		// 封面
 		window.backgroundImg = window.location.origin + '/imgs/' + gameInfo.i + '.png';
 		// ROM
-		window.gameUrl = "../roms/" + gameInfo.i + ".7z";
+		romUrl = (gameInfo.s == "t" ? "https://storage.heheda.top/gba-rom/" : "../roms/") +
+			gameInfo.i + ".7z";
+		window.gameUrl = romUrl;
 		// 初始化
 		window.EJS_player = "#show_box";
 		window.dataPath = "https://other.heheda.top/gamelib/";
@@ -619,7 +622,7 @@ const dowrom = () => {
 	const dorom = confirm('您要下载此游戏的ROM文件吗？');
 	if (dorom == true) {
 		cocoMessage.warning("即将开始下载！", 2000);
-		window.open('../roms/' + gameInfo.i + '.7z');
+		window.open(romUrl);
 	} else {
 		cocoMessage.warning("您取消了下载！", 2000);
 	}
